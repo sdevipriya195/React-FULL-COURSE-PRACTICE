@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+-> React is a Javascript library for building user interfaces.
+-> React is first created by Facebook.
+->React is open-source front-end JavaScript library.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React Dev Tools:
+Elements: We can see styles and html code, we can play with the css here.
+Console: We can log anything here to know the issues and the flow of application.
+Network: We can see Api calls here
+Lighthouse: We can check the performance of the page here.
 
-## Available Scripts
+Some Linux Basic commands:
+cls/clear=> clear the command prompt
+ls => Used to know the list of files available
+history=> Shows the commands we have used until then
+ls -l => It will show more information about the files along with the file names
+cd => Used to change directory
+pwd=> present working directory
+uname=> Gives type of system
+mkdir <DirectoryName>=> It will create folder
+rm -r <DirectoryName>=> It will remove the folder
+touch <fileName>=> It will create empty file
+rm <fileName>=> IT will delete the file
+cat <fileName>=> We can see the content of that file
+date=>shows the today date
+whoami=> Shows the laptop owner details
+whereis <softwareName>=> It will show the location of that software
+man <commandName>=> It will give the manual of that particular command name
 
-In the project directory, you can run:
+npm: npm(node package manager) is package management tool 
 
-### `npm start`
+package.json: It contains all the things we installed mentioned with their version names
+package.lock.json: It contains more information about the package.json
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+babel: babel is a JavaScript compiler which converts ES6 into ES5 internally. React uses the babel internally.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Webpack: Webpack contains all the files as group, for suppose, all .js files will be there as a pack. React uses the webpack internally.
 
-### `npm test`
+Virtual DOM: Virtual DOM is a lightweight JavaScript representation of the real DOM. When the state or props change, React creates a new Virtual DOM and compares it with the previous one (this process is called reconciliation). Based on the differences, React updates only the necessary parts of the real DOM instead of re-rendering the entire UI.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+What is Reconcilation process?
+->Reconciliation is the process React uses to update the UI efficiently. When state or props change, React creates a new Virtual DOM and compares it with the previous one using a diffing algorithm. Based on the differences, React updates only the changed parts in the real DOM instead of re-rendering the entire UI.
 
-### `npm run build`
+What are the phases of a React component lifecycle?
+->React components go through three lifecycle phases: mounting, updating, and unmounting. Mounting happens when the component is created and added to the DOM, updating occurs when state or props change causing re-render, and unmounting happens when the component is removed from the DOM.
+->In functional components, lifecycle phases are handled using hooks like useEffect.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+What is props?
+->Props in React are used to pass data from a parent component to a child component. They are read-only and help make components reusable and dynamic by allowing different data to be passed into them.    
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Can we pass props from child to parent?
+->Props cannot be passed directly from child to parent because React follows one-way data flow. However, we can pass a function from the parent to the child as a prop, and the child can call that function to send data back to the parent.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+What does 'lifting state up' means?
+->Lifting state up is the process of moving state from a child component to its nearest common parent so that the state can be shared between multiple components. This helps maintain a single source of truth and enables better data flow in React applications.
 
-### `npm run eject`
+What is DeStructuring?
+->Destructuring is a JavaScript feature that allows us to extract values from objects or arrays and assign them to variables in a concise way. It is commonly used in React to access props and state more cleanly.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+What is Hooks?
+->Hooks are functions in React that allow functional components to use state and lifecycle features. They were introduced to simplify component logic and avoid the need for class components.
+Hooks follow certain rules like calling them only at the top level and only inside React functions.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Explain about the useState?
+->useState is a React Hook used to manage state in functional components. It returns a state variable and a function to update that state. When the state changes, React re-renders the component to reflect the updated value.
+syntax:const[name,setName]=useState();
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Explain about the useEffect?
+->useEffect is a React Hook used to handle side effects in functional components, such as API calls, subscriptions, or timers. It runs after the component renders and can be controlled using a dependency array. It also supports cleanup functions to manage unmounting or re-running effects.
+syntax:useEffect(()=>{},[dependencies])
+-> There are 4 cases based on the dependency, you can check in "images folder"
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Explain about the async and promises?
+->A Promise is an object that represents the result of an asynchronous operation and can be in pending, fulfilled, or rejected state. Async/await is a modern way to handle promises that makes asynchronous code easier to read and write by allowing us to write it in a synchronous style.
 
-## Learn More
+What is prop-drilling?
+->Prop drilling is the process of passing props from a parent component to deeply nested child components through intermediate components that do not need the data. It can make the code harder to maintain, and it is usually avoided using Context API or state management libraries.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+What is Context API?
+->Context API is a feature in React used to share data globally between components without passing props manually at every level (avoids prop drilling).
+Steps in Context API:
+1️⃣ Create Context: const UserContext = React.createContext();
+2️⃣ Provide Data: 
+function App() {
+  return (
+    <UserContext.Provider value="Devipriya">
+      <Child />
+    </UserContext.Provider>
+  );
+}
+3️⃣ Consume Data: By using useContext
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+What is useContext?
+->useContext is a React Hook used to access or consume data from a Context created using the Context API.
+Example:
+import { useContext } from "react";
 
-### Code Splitting
+function Child() {
+  const user = useContext(UserContext);
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  return <h1>{user}</h1>;
+}
 
-### Analyzing the Bundle Size
+What is useReducer?
+-> useReducer is a React Hook used to manage state using a reducer function. It’s like useState, but for complex state logic.
+-> It takes a reducer and initial state and returns the current state and a dispatch function. It is useful when state updates are complex or when multiple state values are involved.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Syntax: 
+const [state, dispatch] = useReducer(reducer, initialState);
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
