@@ -93,11 +93,9 @@ What is useContext?
 ->useContext is a React Hook used to access or consume data from a Context created using the Context API.
 Example:
 import { useContext } from "react";
-
 function Child() {
   const user = useContext(UserContext);
-
-  return <h1>{user}</h1>;
+  return <p>{user}</p>;
 }
 
 What is useReducer?
